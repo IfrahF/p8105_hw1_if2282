@@ -1,28 +1,49 @@
 ---
 title: "p8105_hw1_if2282"
+author: Ifrah Fayyaz
 output: github_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r, echo = FALSE, message = FALSE}
+library(tidyverse)
 ```
 
-## R Markdown
+# Problem 1
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Creating a random sample of size 10, character variable and factor.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r, message = FALSE, echo = TRUE, warning = FALSE, results = 'hide'}
+prob1_df = 
+  tibble(
+    samp = rnorm(10),
+    gr_than_0 = samp > 0,
+    char = c("Apple", "2020", "4", "Fish", "8", "Pigeon", "1999", "Rain", "987", "gr8"),
+    fact = factor(c("First", "Second", "Third", "Second", "First", "First", "Third", "First", "Second", "Second"))
+  )
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, gr_than_0))
+mean(pull(prob1_df, char))
+mean(pull(prob1_df, fact))
 ```
+Only the mean for "samp" variable works since it is a numeric variable. The mean for the logical, character and factor variables is not generated and I am given a warning message.
 
-## Including Plots
 
-You can also embed plots, for example:
+## Taking means for logical, character and factor variables:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r, echo = TRUE, warning = FALSE, results = 'hide'}
+gr_than_0.n = mean(as.numeric(pull(prob1_df, gr_than_0)))
+char.n = mean(as.numeric(pull(prob1_df, char)))
+fact.n = mean(as.numeric(pull(prob1_df, fact)))
 ```
+After applying as.numeric, we obtained mean for all the variables. I got a numeric mean for my factor variable and that is because my elements got converted to numbers - "first" got converted to 1 etc. For the character variable, I got the mean as 'NA_real_' and that is because even after converting its type to numeric, the elements were not numeric.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+
+
+
+
+
+
