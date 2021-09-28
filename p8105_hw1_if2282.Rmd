@@ -37,6 +37,28 @@ fact.n = mean(as.numeric(pull(prob1_df, fact)))
 ```
 After applying as.numeric, we obtained mean for all the variables. I got a numeric mean for my factor variable and that is because my elements got converted to numbers - "first" got converted to 1 etc. For the character variable, I got the mean as 'NA_real_' and that is because even after converting its type to numeric, the elements were not numeric.
 
+# Problem 2
+
+```{r, echo = FALSE, message = FALSE}
+data("penguins", package = "palmerpenguins")
+```
+
+## Penguin Data Description
+
+```{r}
+skimr::skim(penguins)
+nrow(penguins)
+ncol(penguins)
+
+```
+The penguin dataset has 3 factor variables (species with 3 levels, island with 3 levels and sex with 2 levels) and 5 numeric variables (bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g and year). The total number of rows in the dataset are 344 and the number of columns are 8. 
+
+
+
+
+
+
+
 
 
 
