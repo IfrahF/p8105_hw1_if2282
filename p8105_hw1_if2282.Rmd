@@ -47,7 +47,7 @@ data("penguins", package = "palmerpenguins")
 
 ## Penguin Data Description
 
-The penguin dataset has the following variables: `r names(penguins)`. The total number of rows in the dataset are `r nrow(penguins)` and the number of columns are `r ncol(penguins)`. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm.
+The penguin data set has the following variables: `r names(penguins)`. The total number of rows in the dataset are `r nrow(penguins)` and the number of columns are `r ncol(penguins)`. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm.
 
 ## Scatterplot for Bill Length vs. Flipper Length
 
