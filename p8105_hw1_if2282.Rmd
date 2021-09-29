@@ -27,7 +27,7 @@ mean(pull(prob1_df, gr_than_0))
 mean(pull(prob1_df, char))
 mean(pull(prob1_df, fact))
 ```
-Only the mean for "samp" variable works since it is a numeric variable. The mean for the logical, character and factor variables is not generated and I am given a warning message.
+I obtain the mean for "samp" and "gr_than_0" variables but the mean for the character and factor variables is not generated and I am given a warning message.
 
 
 ## Taking means for logical, character and factor variables:
@@ -52,20 +52,8 @@ The penguin dataset has the following variables: `r names(penguins)`. The total 
 ## Scatterplot for Bill Length vs. Flipper Length
 
 ```{r, warning = FALSE}
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = 'red')) + geom_point()
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 ggsave("scatterplot.pdf", height = 8, width = 12)
 ```
-
-
-
-
-
-
-
-
-
-
-
-
 
 
