@@ -33,9 +33,9 @@ I obtain the mean for "samp" and "gr_than_0" variables but the mean for the char
 ## Taking means for logical, character and factor variables:
 
 ```{r, echo = TRUE, warning = FALSE, results = 'hide'}
-gr_than_0.n = mean(as.numeric(pull(prob1_df, gr_than_0)))
-char.n = mean(as.numeric(pull(prob1_df, char)))
-fact.n = mean(as.numeric(pull(prob1_df, fact)))
+mean(as.numeric(pull(prob1_df, gr_than_0)))
+mean(as.numeric(pull(prob1_df, char)))
+mean(as.numeric(pull(prob1_df, fact)))
 ```
 After applying as.numeric, we obtained mean for all the variables. I got a numeric mean for my factor variable and that is because my elements got converted to numbers - "first" got converted to 1 etc. For the character variable, I got the mean as 'NA_real_' and that is because even after converting its type to numeric, the elements were not numeric.
 
@@ -47,7 +47,7 @@ data("penguins", package = "palmerpenguins")
 
 ## Penguin Data Description
 
-The penguin data set has the following variables: `r names(penguins)`. The total number of rows in the dataset are `r nrow(penguins)` and the number of columns are `r ncol(penguins)`. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm.
+The penguin data set has the following variables: `r names(penguins)`. The types of penguins are `r levels(pull(penguins, species))` and the types of islands are `r levels(pull(penguins, island))`. The total number of rows in the dataset are `r nrow(penguins)` and the number of columns are `r ncol(penguins)`. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm.
 
 ## Scatterplot for Bill Length vs. Flipper Length
 
