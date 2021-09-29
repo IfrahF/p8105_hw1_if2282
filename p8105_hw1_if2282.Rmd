@@ -1,7 +1,9 @@
 ---
 title: "p8105_hw1_if2282"
 author: Ifrah Fayyaz
-output: github_document
+output: 
+  github_document:
+    toc: TRUE
 ---
 
 ```{r, echo = FALSE, message = FALSE}
@@ -12,7 +14,7 @@ library(tidyverse)
 
 ## Creating a random sample of size 10, character variable and factor.
 
-```{r, message = FALSE, echo = TRUE, warning = FALSE, results = 'hide'}
+```{r, message = FALSE, echo = TRUE, warning = FALSE}
 prob1_df = 
   tibble(
     samp = rnorm(10),
@@ -45,16 +47,14 @@ data("penguins", package = "palmerpenguins")
 
 ## Penguin Data Description
 
-```{r}
-skimr::skim(penguins)
-nrow(penguins)
-ncol(penguins)
+The penguin dataset has the following variables: `r names(penguins)`. The total number of rows in the dataset are `r nrow(penguins)` and the number of columns are `r ncol(penguins)`. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm.
 
+## Scatterplot for Bill Length vs. Flipper Length
+
+```{r, warning = FALSE}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = 'red')) + geom_point()
+ggsave("scatterplot.pdf", height = 8, width = 12)
 ```
-The penguin dataset has 3 factor variables (species with 3 levels, island with 3 levels and sex with 2 levels) and 5 numeric variables (bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g and year). The total number of rows in the dataset are 344 and the number of columns are 8. 
-
-
-
 
 
 
